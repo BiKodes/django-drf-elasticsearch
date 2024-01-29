@@ -49,25 +49,25 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.stdout.write(self.style.SUCCESS("Started database population process..."))
 
-        if User.objects.filter(username="mike13").exists():
+        if User.objects.filter(username="BiKodes").exists():
             self.stdout.write(self.style.SUCCESS("Database has already been populated. Cancelling the operation."))
             return
 
         # Create users
-        mike = User.objects.create_user(username="mike13", password="really_strong_password123")
-        mike.first_name = "Mike"
-        mike.last_name = "Smith"
-        mike.save()
+        bikodes = User.objects.create_user(username="bikodes", password="really_strong_password123")
+        bikodes.first_name = "BiKodes"
+        bikodes.last_name = "Olianga"
+        bikodes.save()
 
-        jess = User.objects.create_user(username="jess_", password="really_strong_password123")
-        jess.first_name = "Jess"
-        jess.last_name = "Brown"
-        jess.save()
+        jasiri = User.objects.create_user(username="jasiri_", password="really_strong_password123")
+        jasiri.first_name = "jasiri"
+        jasiri.last_name = "Biko"
+        jasiri.save()
 
-        johnny = User.objects.create_user(username="johnny", password="really_strong_password123")
-        johnny.first_name = "Johnny"
-        johnny.last_name = "Davis"
-        johnny.save()
+        almasi = User.objects.create_user(username="almasi", password="really_strong_password123")
+        almasi.first_name = "almasi"
+        almasi.last_name = "Davis"
+        almasi.save()
 
         # Create categories
         system_administration = Category.objects.create(name="System administration")
@@ -77,7 +77,7 @@ class Command(BaseCommand):
         # Create articles
         website_article = Article.objects.create(
            title="How to code and deploy a website?",
-           author=mike,
+           author=bikodes,        
            type="TU",
            content="There are numerous ways of how you can deploy a website...",
         )
@@ -86,7 +86,7 @@ class Command(BaseCommand):
 
         google_article = Article.objects.create(
            title="How to improve your Google rating?",
-           author=jess,
+           author=jasiri,
            type="TU",
            content="Firstly, add the correct SEO tags...",
         )
@@ -95,16 +95,16 @@ class Command(BaseCommand):
 
         programming_article = Article.objects.create(
            title="Which programming language is the best?",
-           author=jess,
+           author=jasiri,
            type="RS",
-           content="The best programming languages are:\n1) Python\n2) Java\n3) C/C++...",
+           content="The best programming languages are:\n1) Python\n2) Golang\n3) Golang...",
         )
         programming_article.save()
         programming_article.categories.add(programming)
 
         ubuntu_article = Article.objects.create(
            title="Installing the latest version of Ubuntu",
-           author=johnny,
+           author=almasi,
            type="TU",
            content="In this tutorial, we'll take a look at how to setup the latest version of Ubuntu. Ubuntu "
                    "(/ʊˈbʊntuː/ is a Linux distribution based on Debian and composed mostly of free and open-source"
@@ -116,7 +116,7 @@ class Command(BaseCommand):
 
         django_article = Article.objects.create(
            title="Django REST Framework and Elasticsearch",
-           author=johnny,
+           author=almasi,
            type="TU",
            content="In this tutorial, we'll look at how to integrate Django REST Framework with Elasticsearch. "
            "We'll use Django to model our data and DRF to serialize and serve it. Finally, we'll index the data "
@@ -126,6 +126,7 @@ class Command(BaseCommand):
         django_article.categories.add(system_administration)
 
         self.stdout.write(self.style.SUCCESS("Successfully populated the database."))
+
 ```
 
 Run the following command to populate the DB:
