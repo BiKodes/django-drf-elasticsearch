@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from constants import ARTICLE_TYPES
+from blog.constants import ARTICLE_TYPES
 
 class Category(models.Model):
     """ Represents an article category.
