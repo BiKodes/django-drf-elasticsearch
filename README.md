@@ -177,4 +177,8 @@ However, in this project we are using Kibana. Kibana’s developer console provi
 
 To access the console, go to Management > Dev Tools.
 
+#### To create and populate the Elasticsearch index and mapping, use the search_index command:
+
+```python manage.py search_index --rebuild```
+
 ### [Install Elasticsearch With Docker](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/docker.html)
