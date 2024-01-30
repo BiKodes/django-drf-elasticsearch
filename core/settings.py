@@ -1,8 +1,9 @@
 """
 Django settings for core project.
 """
-
+import os
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,6 +30,7 @@ INSTALLED_APPS = [
 
     # Custom app
     'blog.apps.BlogConfig',
+    'search.apps.SearchConfig'
 
 ]
 
@@ -108,4 +110,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 25
+}
+
+# Elasticsearch
+
+ELASTICSEARCH_DSL = {
+    "default": {
+        "hosts": "https://localhost:9200",
+        "http_auth": ("elastic", os.getenv("ELASTIC_USER_PASSWORD", "")),
+        "ca_certs": os.getenv("PATH_TO_HTTP_CA_CRT", ""),
+    }
 }
