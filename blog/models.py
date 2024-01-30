@@ -12,6 +12,16 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "categories"
 
+    def type_to_string(self):
+        if self.type == "UN":
+            return "Unspecified"
+        if self.type == "TU":
+            return "Tutorial"
+        if self.type == "RS":
+            return "Research"
+        if self.type == "RW":
+            return "Review"
+
     def __str__(self) -> str:
         """Represent a category with a name."""
         return f"{self.name}"
