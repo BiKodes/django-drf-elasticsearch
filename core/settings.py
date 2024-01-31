@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'haystack',
 
     # Custom app
     'blog.apps.BlogConfig',
@@ -121,3 +122,14 @@ ELASTICSEARCH_DSL = {
         "ca_certs": os.getenv("PATH_TO_HTTP_CA_CRT", ""),
     }
 }
+
+# Haystack settings
+HAYSTACK_CONNECTIONS = {
+    "default": {
+        "ENGINE": "haystack.backends.elasticsearch7_backend.Elasticsearch7SearchEngine",
+        "URL": "http://127.0.0.1:8000/",
+        "INDEX_NAME": "django_flix",
+    },
+}
+# auto index to elastic search when new data is created or when data is saved in the database
+HAYSTACK_SIGNAL_PROCESSOR = "haystack.signals.RealtimeSignalProcessor"
