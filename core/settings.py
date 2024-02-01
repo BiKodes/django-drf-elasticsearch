@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'haystack',
 
     # Custom app
     'blog.apps.BlogConfig',
@@ -126,7 +127,7 @@ ELASTICSEARCH_DSL = {
 HAYSTACK_CONNECTIONS = {
     "default": {
         "ENGINE": "haystack.backends.elasticsearch7_backend.Elasticsearch7SearchEngine",
-        "URL": "http://127.0.0.1:9200/",
+        "URL": "http://127.0.0.1:8000/",
         "INDEX_NAME": "django_flix",
     },
 }
