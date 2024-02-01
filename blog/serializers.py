@@ -1,12 +1,12 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from blog.models import Article, Category
-from drf_haystack.serializers import HaystackSerializer
-from ..search.search_indexes import (
-    CategoryIndex,
-    ArticleIndex,
-    UserIndex,
-)
+# from drf_haystack.serializers import HaystackSerializer
+# from search.search_indexes import (
+#     CategoryIndex,
+#     ArticleIndex,
+#     UserIndex,
+# )
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,29 +26,29 @@ class ArticleSerializer(serializers.ModelSerializer):
         model = Article
         fields = "__all__"
 
-class UserHayStackSerializer(HaystackSerializer):
-    class Meta:
-        index_classes = [UserIndex]
-        fields = [
-            "first_name",
-            "last_name",
-            "username",
-        ]
+# class UserHayStackSerializer(HaystackSerializer):
+#     class Meta:
+#         index_classes = [UserIndex]
+#         fields = [
+#             "first_name",
+#             "last_name",
+#             "username",
+#         ]
 
-class CategoryHayStackSerializer(HaystackSerializer):
-    class Meta:
-        index_classes = [CategoryIndex]
-        fields = ["id", "description"]
+# class CategoryHayStackSerializer(HaystackSerializer):
+#     class Meta:
+#         index_classes = [CategoryIndex]
+#         fields = ["id", "description"]
 
-class ArticleHayStackSerializer(HaystackSerializer):
-    class Meta:
-        index_classes = [ArticleIndex]
-        fields = [
-            "title",
-            "type",
-            "author",
-            "categories",
-            "content",
-            "created_datetime",
-            "updated_datetime",
-        ]
+# class ArticleHayStackSerializer(HaystackSerializer):
+#     class Meta:
+#         index_classes = [ArticleIndex]
+#         fields = [
+#             "title",
+#             "type",
+#             "author",
+#             "categories",
+#             "content",
+#             "created_datetime",
+#             "updated_datetime",
+#         ]
