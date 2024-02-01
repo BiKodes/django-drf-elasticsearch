@@ -6,3 +6,4 @@ django-elasticsearch-dsl==8.0
 django-haystack
 drf-haystack
 haystack
+requests
