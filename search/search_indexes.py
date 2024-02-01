@@ -8,7 +8,7 @@ from haystack import indexes
 from django.contrib.auth.models import User
 import datetime
 from django.utils import timezone
-from .models import Article, Category
+from ..blog.models import Article, Category
 
 class ArticleIndex(indexes.SearchIndex, indexes.Indexable):
     """Article indexing setup."""

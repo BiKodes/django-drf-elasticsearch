@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from blog.models import Article, Category
 from drf_haystack.serializers import HaystackSerializer
-from .search_indexes import (
+from ..search.search_indexes import (
     CategoryIndex,
     ArticleIndex,
     UserIndex,
