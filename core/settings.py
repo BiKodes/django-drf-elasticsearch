@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_elasticsearch_dsl',
+    'haystack',
 
     # Custom app
     'blog.apps.BlogConfig',
@@ -118,7 +120,8 @@ ELASTICSEARCH_DSL = {
     "default": {
         "hosts": "https://localhost:9200",
         "http_auth": ("elastic", os.getenv("ELASTIC_USER_PASSWORD", "")),
-        "ca_certs": os.getenv("PATH_TO_HTTP_CA_CRT", ""),
+        # "ca_certs": os.getenv("PATH_TO_HTTP_CA_CRT", ""),
+        "ca_certs": "PATH_TO_http_ca.crt",
     }
 }
 
@@ -126,7 +129,7 @@ ELASTICSEARCH_DSL = {
 HAYSTACK_CONNECTIONS = {
     "default": {
         "ENGINE": "haystack.backends.elasticsearch7_backend.Elasticsearch7SearchEngine",
-        "URL": "http://127.0.0.1:9200/",
+        "URL": "http://127.0.0.1:8000/",
         "INDEX_NAME": "django_flix",
     },
 }

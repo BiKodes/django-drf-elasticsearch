@@ -31,8 +31,9 @@ You need some initial data to work with the program. I've created a simple comma
 Create a new folder in "data" on the root directory of the project and then inside 
 of the folder, create a new file called populate_db.py.
 
-blog
-└── populate_db.py
+                  management
+                  └── commands
+                     └── populate_db.py
 
 Copy the file contents the following contents and paste it inside your populate_db.py:
 
@@ -182,3 +183,9 @@ To access the console, go to Management > Dev Tools.
 ```python manage.py search_index --rebuild```
 
 ### [Install Elasticsearch With Docker](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/docker.html)
+
+### To create and populate the Elasticsearch index and mapping, use the search_index command:
+
+```python manage.py search_index --rebuild```
+
+

@@ -1,3 +1,4 @@
+"""This data indexing is specifically for Elasticsearch DSL."""
 from django.contrib.auth.models import User
 from django_elasticsearch_dsl import Document, fields
 from django_elasticsearch_dsl.registries import registry

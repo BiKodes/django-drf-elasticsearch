@@ -1,3 +1,3 @@
-from django.shortcuts import render
+from search.documents import ArticleDocument
 
-# Create your views here.
+search = ArticleDocument.search()
