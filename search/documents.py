@@ -9,6 +9,10 @@ from blog.models import Category, Article
 class UserDocument(Document):
     class Index:
         name = "users"
+        settings = {
+            "number_of_shards": 1,
+            "number_of_replicas": 0,
+        }
 
     class Django:
         model = User
@@ -25,6 +29,10 @@ class CategoryDocument(Document):
 
     class Index:
         name = "categories"
+        settings = {
+            "number_of_shards": 1,
+            "number_of_replicas": 0,
+        }
 
     class Django:
         model = Category
@@ -50,6 +58,10 @@ class ArticleDocument(Document):
 
     class Index:
         name = "articles"
+        settings = {
+            "number_of_shards": 1,
+            "number_of_replicas": 0,
+        }
 
     class Django:
         model = Article
