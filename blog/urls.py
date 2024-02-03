@@ -12,7 +12,6 @@ router.register(r"users", UserViewSet)
 router.register(r"category", CategoryViewSet)
 router.register(r"article", ArticleViewSet)
 
-
 urlpatterns = [
     path("", include(router.urls))
 ]
